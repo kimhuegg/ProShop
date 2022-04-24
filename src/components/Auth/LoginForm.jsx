@@ -1,9 +1,14 @@
-import { Button, Checkbox, FormControlLabel, Grid, InputAdornment, TextField } from "@mui/material";
+import { Alert, Button, Checkbox, FormControlLabel, Grid, TextField } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import CircularProgress from '@mui/material/CircularProgress';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { useFormik } from "formik";
+import React, { useState } from "react";
+import authApi from "../../api/authApi";
+
 
 const theme = createTheme({
   palette: {
@@ -19,6 +24,34 @@ const theme = createTheme({
 });
 
 function LoginForm({ onClose, onOpenRegister, onOpenForgotPass }) {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password : ''
+    },
+    onSubmit: values => {
+      setLoading(true)
+      const userLogin = {
+          email: values.email,
+          password: values.password,
+          deviceId: values.email
+      }
+      authApi.login(userLogin)
+      .then((res) => {
+        const token = res?.data.tokens.access.token
+        console.log(res?.data.tokens.access);
+        localStorage.setItem("token", token)
+        onClose()
+      }).catch((error) => {
+        setError(error.toString())
+      }).finally(() => {
+        setLoading(false)
+      })
+    },
+  });
   return (
     <ThemeProvider theme={theme}>
       <Card
@@ -35,18 +68,24 @@ function LoginForm({ onClose, onOpenRegister, onOpenForgotPass }) {
               <Typography variant="h5" component="div">
                 Wellcome to Shop App
               </Typography>
+              {
+              error? <Alert severity="error">{error}</Alert> : ''
+            }
             </CardContent>
+            
+            
             <CardActions>
-              <form>
+              <form onSubmit={formik.handleSubmit}>
                 <TextField
                   margin="normal"
                   required
                   fullWidth
-                  id="username"
-                  label="Username"
+                  id="email"
+                  label="Email"
                   type="text"
                   autoComplete="username"
                   variant="standard"
+                  onChange={formik.handleChange}
                 />
                 <TextField
                   margin="normal"
@@ -57,11 +96,7 @@ function LoginForm({ onClose, onOpenRegister, onOpenForgotPass }) {
                   type="password"
                   autoComplete="current-password"
                   variant="standard"
-                  endadornment={
-                    <InputAdornment position="end">
-                      <p>input</p>
-                    </InputAdornment>
-                  }
+                  onChange={formik.handleChange}
                 />
 
                 <Grid container justifyContent="end">
@@ -86,9 +121,12 @@ function LoginForm({ onClose, onOpenRegister, onOpenForgotPass }) {
                 >
                   Log In
                 </Button>
+                {
+                  loading ? <CircularProgress /> : ''
+                }
                 <Grid container>
-                  <Grid item xs={12} sx={{ pb: 5 }}>
-                    <span variant="body2" onClick={onOpenRegister}>
+                  <Grid item xs={12} sx={{ pb: 5 ,cursor: 'pointer'}}>
+                    <span variant="body2" onClick={onOpenRegister} >
                       {"Create an account "}
                     </span>
                   </Grid>

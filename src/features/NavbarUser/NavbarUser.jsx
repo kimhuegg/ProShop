@@ -12,6 +12,7 @@ import ForgotPasswordForm from "../../components/Auth/ForgotPasswordForm.jsx";
 import LoginForm from "../../components/Auth/LoginForm.jsx";
 import RegisterForm from "../../components/Auth/RegisterForm.jsx";
 import "./style.scss";
+import CustomButton from '../../components/Navbar/CustomButton'
 
 const styleModal = {
   position: "absolute",
@@ -42,7 +43,7 @@ function NavbarUser() {
   };
 
   const handleOpenRegister = () => {
-    setModal({ login: true, register: false, forgot: false, confirm: false });
+    setModal({ login: false, register: true, forgot: false, confirm: false });
   };
 
   const handleCloseRegister = () => {
@@ -100,9 +101,7 @@ function NavbarUser() {
                 </Typography>
               </Grid>
               <Grid item xs={1}>
-                <Button sx={{ borderRadius: "50%" }} onClick={handleOpenLogin}>
-                  <PersonIcon sx={{ fontSize: 38, fontWeight: "bold" }} />
-                </Button>
+                <CustomButton openLogin={handleOpenLogin}/>
               </Grid>
             </Grid>
           </Box>
