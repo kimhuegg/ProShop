@@ -2,12 +2,13 @@
   min-height: 100vh;
   padding-top: 20px;
   background: #fff;
-  &-divider {
-    border-top-color: #c2c2c2;
+  &-review {
+    margin-top: 18px;
   }
 }
 
-.related-product {
+.related-products {
+  margin-top: 28px;
   &__divider {
     border-top-color: #5a5a5a;
   }
