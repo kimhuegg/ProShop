@@ -1,0 +1,43 @@
+.quantity-btn {
+  background-color: #e2e4e6;
+  display: flex;
+  align-items: center;
+  width: 164px;
+  height: 42px;
+  border-radius: 5px;
+  &__input {
+    background-color: #e2e4e6;
+    display: block;
+    height: 100%;
+    width: 64px;
+    text-align: center;
+    border: none;
+  }
+  &__icon {
+    padding: 18px 20px;
+    // width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:first-child {
+      justify-content: flex-end;
+    }
+    &:last-child {
+      justify-content: flex-start;
+    }
+    img {
+    }
+  }
+}
+
+//Remove Input Arrows
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+}
