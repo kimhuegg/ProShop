@@ -1,0 +1,88 @@
+.product-info {
+  position: relative;
+  height: 100%;
+  margin-left: 62px;
+  &__name {
+    padding: 24px 0;
+  }
+  &__description {
+    margin: 24px 0;
+  }
+  .rating {
+    display: flex;
+    align-items: center;
+    line-height: 16px;
+    &-item {
+      align-self: center;
+      height: 24px;
+      line-height: 20px;
+      // margin-right: 20px;
+      // border-right: 3px solid red;
+      .ant-rate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.product-btn {
+  overflow: hidden;
+  background-color: #e2e4e6;
+  border-radius: 5px;
+  width: 164px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &-container {
+    display: flex;
+  }
+}
+
+.product-quantity {
+  &__text {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 12px 0;
+  }
+  &__input {
+    height: 40px;
+    text-align: center;
+  }
+  &__btn,
+  &__input {
+    background-color: #e2e4e6;
+  }
+}
+
+.product-add__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 164px;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  img {
+    margin-right: 8px;
+  }
+}
+
+.product-rate {
+  position: absolute;
+  bottom: 0;
+  &__text {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+//Remove Input Arrows
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
