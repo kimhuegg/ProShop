@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import {
@@ -8,6 +9,7 @@ import {
   InputAdornment,
   InputLabel,
   TextField,
+  Alert,
 } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -15,7 +17,13 @@ import CardContent from "@mui/material/CardContent";
 import IconButton from "@mui/material/IconButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import React from "react";
+import {useFormik} from "formik";
+import { useDispatch } from "react-redux";
+import {register} from '../../redux/reducers/authSlice'
+import authApi from "../../api/authApi";
+import CircularProgress from '@mui/material/CircularProgress';
+
+
 
 const theme = createTheme({
   palette: {
@@ -32,9 +40,41 @@ const theme = createTheme({
 
 function RegisterForm({ onClose, onOpenLogin }) {
   const [showPassword, setShowPassword] = React.useState(false);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const dispatch = useDispatch()
+
+
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const formik = useFormik({
+    initialValues: {
+        username : '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    },
+    onSubmit: values => {
+        setLoading(true)
+        const userRegister = {
+            email: values.email,
+            password: values.password,
+            username : values.username
+        }
+        console.log(userRegister)
+        authApi.register(userRegister).then((res) => {
+           dispatch(register(res.data.user))
+            onClose()
+        }).catch((error) => {
+            setError(error.toString())
+        }). finally(() => {
+            setLoading(false)
+        })
+        // send verify email
+    }
+});
   return (
     <ThemeProvider theme={theme}>
       <Card
@@ -88,9 +128,13 @@ function RegisterForm({ onClose, onOpenLogin }) {
               <Typography variant="h5" component="div">
                 Wellcome to Shop App
               </Typography>
+              {
+                            error ? <Alert severity="error">
+                                {error}</Alert> : ''
+                        } 
             </CardContent>
             <CardActions>
-              <form>
+              <form onSubmit={formik.handleSubmit}>
                 <TextField
                   margin="dense"
                   required
@@ -100,6 +144,9 @@ function RegisterForm({ onClose, onOpenLogin }) {
                   type="text"
                   autoComplete="username"
                   variant="standard"
+                  onChange={
+                    formik.handleChange
+                }
                 />
                 <TextField
                   margin="dense"
@@ -110,38 +157,45 @@ function RegisterForm({ onClose, onOpenLogin }) {
                   type="email"
                   autoComplete="username"
                   variant="standard"
+                  onChange={
+                    formik.handleChange
+                }
                 />
 
                 <FormControl variant="standard" fullWidth margin="dense">
                   <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                   <Input
-                    id="standard-adornment-password"
+                    id="password"
                     type={showPassword ? "text" : "password"}
                     endAdornment={
                       <InputAdornment position="end">
                         <IconButton
                           aria-label="toggle password visibility"
                           onClick={handleClickShowPassword}
-                          // onMouseDown={handleMouseDownPassword}
                         >
                           {showPassword ? <VisibilityOff /> : <Visibility />}
                         </IconButton>
                       </InputAdornment>
                     }
+                    onChange={
+                      formik.handleChange
+                  }
                   />
                 </FormControl>
                 <TextField
                   margin="dense"
                   required
                   fullWidth
-                  id="confirm-password"
+                  id="confirmPassword"
                   label="Confirm Password"
                   type="password"
                   autoComplete="current-password"
                   variant="standard"
+                  onChange={formik.handleChange }
                 />
 
-                <Button
+{
+                loading ? <CircularProgress/>: <Button
                   type="submit"
                   fullWidth
                   variant="contained"
@@ -150,6 +204,7 @@ function RegisterForm({ onClose, onOpenLogin }) {
                 >
                   Register
                 </Button>
+                }
                 <Grid container>
                   <Grid item xs={12} sx={{ pb: 5 }}>
                     <span variant="body2" onClick={onOpenLogin}>

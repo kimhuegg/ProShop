@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import NavbarUser from "./features/NavbarUser/NavbarUser";
 import ProductDetail from "./features/ProductDetail/ProductDetail";
-
+import VerifyEmail from "./features/VerifyEmail/VerifyEmail";
 ConfigProvider.config({
   theme: {
     primaryColor: "#FFD333",
@@ -19,6 +19,7 @@ function App() {
         <Route path="/" element={<NavbarUser />}>
           {/* <Route index element={<Home />} /> */}
           <Route path="product/:id" element={<ProductDetail />} />
+          <Route path="verify-email" element={<VerifyEmail />} />
           {/* <Route element={<UserGuard />}>
             <Route path="cart" element={<ShoppingCart />} />
             <Route path="checkout" element={<Checkout />} />

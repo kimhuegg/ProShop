@@ -3,10 +3,12 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import PersonIcon from "@mui/icons-material/Person";
+import { useNavigate } from "react-router-dom";
 
 
 export default function CustomButton({openLogin}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const navigate = useNavigate()
   const open = Boolean(anchorEl);
 
   const token =localStorage.getItem('token');
@@ -25,6 +27,20 @@ export default function CustomButton({openLogin}) {
   const handleLogout = () => {
       localStorage.clear()
       setAnchorEl(null);
+      navigate('/')
+  }
+
+  const handleVerifyEmail = () => {
+    navigate('/verify-email')
+
+  }
+  const handleOrderHistory = () => {
+    
+
+  }
+  const handleMyProfile = () => {
+    
+
   }
   return (
     <div>
@@ -47,7 +63,10 @@ export default function CustomButton({openLogin}) {
           "aria-labelledby": "basic-button"
         }}
       >
+        <MenuItem onClick={handleMyProfile}>My Profile</MenuItem>
+        <MenuItem onClick={handleOrderHistory}>Order History</MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
+        <MenuItem onClick={handleVerifyEmail}>Verify Email</MenuItem>
       </Menu>
     </div>
   );
