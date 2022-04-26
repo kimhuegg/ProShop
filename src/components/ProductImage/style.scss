@@ -1,0 +1,15 @@
+@import "../../scss/variables";
+
+.image-gallery {
+  min-height: 340px;
+  min-width: 340px;
+}
+
+.image-gallery-image {
+  border-radius: 5px;
+}
+
+.image-gallery-thumbnail.active {
+  border-radius: 5px;
+  border: 2px solid $primary-color;
+}
