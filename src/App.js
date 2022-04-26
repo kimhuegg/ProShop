@@ -6,14 +6,7 @@ import "./App.css";
 import Checkout from "./features/Checkout/Checkout";
 import NavbarUser from "./features/NavbarUser/NavbarUser";
 import ProductDetail from "./features/ProductDetail/ProductDetail";
-<<<<<<< HEAD
 import VerifyEmail from "./features/VerifyEmail/VerifyEmail";
-=======
-import ShoppingCart from "./features/ShoppingCart/ShoppingCart";
-import UserDetail from "./features/UserDetail/UserDetail";
-import UserGuard from "./features/UserGuard/UserGuard";
-
->>>>>>> af30057cc70c5da11a12f8145703fac7e6dcbcb1
 ConfigProvider.config({
   theme: {
     primaryColor: "#FFD333",
