@@ -1,0 +1,55 @@
+.related-products {
+  &__heading {
+  }
+  &__name {
+    margin-bottom: 18px;
+    overflow: hidden;
+    > h2 {
+      position: relative;
+      padding-right: 10px;
+      display: inline-block;
+      line-height: 30px;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        background-color: #5a5a5a;
+        top: 50%;
+        height: 1px;
+        left: 100%;
+        transform: translateY(-50%);
+        z-index: 0;
+      }
+    }
+  }
+  &__arrow {
+    display: block;
+    position: relative;
+    float: right;
+    padding-left: 8px;
+    background-color: white;
+    > img {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      &:first-child {
+        margin: 0 8px;
+      }
+      &:last-child {
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  margin: 0 10px;
+  height: auto;
+}

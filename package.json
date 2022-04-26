@@ -11,16 +11,14 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "antd": "^4.19.5",
+    "antd": "^4.17.3",
     "axios": "^0.26.1",
     "formik": "^2.2.9",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-image-gallery": "^1.2.7",
     "react-redux": "^7.2.8",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "4.0.1",
-    "sass": "^1.50.1"
+    "react-router-dom": "^6.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

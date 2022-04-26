@@ -1,11 +1,19 @@
 import { ConfigProvider } from "antd";
-import "antd/dist/antd.variable.min.css";
+import "antd/dist/antd.min.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Checkout from "./features/Checkout/Checkout";
 import NavbarUser from "./features/NavbarUser/NavbarUser";
 import ProductDetail from "./features/ProductDetail/ProductDetail";
+<<<<<<< HEAD
 import VerifyEmail from "./features/VerifyEmail/VerifyEmail";
+=======
+import ShoppingCart from "./features/ShoppingCart/ShoppingCart";
+import UserDetail from "./features/UserDetail/UserDetail";
+import UserGuard from "./features/UserGuard/UserGuard";
+
+>>>>>>> af30057cc70c5da11a12f8145703fac7e6dcbcb1
 ConfigProvider.config({
   theme: {
     primaryColor: "#FFD333",
@@ -17,16 +25,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<NavbarUser />}>
-          {/* <Route index element={<Home />} /> */}
           <Route path="product/:id" element={<ProductDetail />} />
           <Route path="verify-email" element={<VerifyEmail />} />
-          {/* <Route element={<UserGuard />}>
-            <Route path="cart" element={<ShoppingCart />} />
-            <Route path="checkout" element={<Checkout />} />
-            <Route path="userdetail" element={<UserDetail />} />
-          </Route>
         </Route>
-        <Route element={<AdminGuard />}>
+        {/* <Route element={<AdminGuard />}>
           <Route path="/admin" element={<Admin />}>
             <Route path="product" element={<ProductList />}>
               <Route path="create" element={<ProductCreate />} />
@@ -40,8 +42,8 @@ function App() {
             <Route path="order" element={<OderList />}>
               <Route path=":id" element={<OrderDetail />} />
             </Route>
-          </Route> */}
-        </Route>
+          </Route>
+        </Route> */}
       </Routes>
     </div>
   );

@@ -1,7 +1,11 @@
 import "./style.scss";
 
-const CustomButton = ({ children }) => {
-  return <button className="custom-btn">{children}</button>;
+const CustomButton = ({ children, className, onClick }) => {
+  return (
+    <button type="submit" onClick={onClick} className={`btn ${className}`}>
+      {children}
+    </button>
+  );
 };
 
 export default CustomButton;

@@ -80,7 +80,7 @@ function NavbarUser() {
                   <BtnAntd>
                     <MenuFoldOutlined /> Category
                   </BtnAntd>
-                  <Input.Search allowClear style={{ width: "40%" }} defaultValue="0571" />
+                  <Input.Search allowClear style={{ width: "40%" }} />
                 </Input.Group>
               </Grid>
               <Grid item xs={1}>
