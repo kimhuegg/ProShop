@@ -7,6 +7,9 @@ import Checkout from "./features/Checkout/Checkout";
 import NavbarUser from "./features/NavbarUser/NavbarUser";
 import ProductDetail from "./features/ProductDetail/ProductDetail";
 import VerifyEmail from "./features/VerifyEmail/VerifyEmail";
+import Home from "./features/Home/Home";
+import SearchResult from "./features/SearchResult/SearchResult"
+
 ConfigProvider.config({
   theme: {
     primaryColor: "#FFD333",
@@ -18,8 +21,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<NavbarUser />}>
+          <Route index element={<Home />} />
           <Route path="product/:id" element={<ProductDetail />} />
           <Route path="verify-email" element={<VerifyEmail />} />
+          <Route path="search-result" element={<SearchResult />} />
         </Route>
         {/* <Route element={<AdminGuard />}>
           <Route path="/admin" element={<Admin />}>

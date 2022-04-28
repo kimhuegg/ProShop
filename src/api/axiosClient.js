@@ -30,8 +30,4 @@ axiosClient.interceptors.response.use(
   }
 );
 
-<<<<<<< HEAD
 export default axiosClient;
-=======
-export default axiosClient;
->>>>>>> hoangpv

@@ -5,13 +5,10 @@ const productApi = {
     const url = `/products?category=${category}`;
     return axiosClient.get(url);
   },
-<<<<<<< HEAD
-=======
   getAllProduct: () => {
     const url = `/products`;
     return axiosClient.get(url);
   },
->>>>>>> hoangpv
   getById: (productId) => {
     const url = `/products/${productId}`;
     return axiosClient.get(url);

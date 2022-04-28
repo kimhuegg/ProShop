@@ -1,9 +1,7 @@
 import { MenuFoldOutlined } from "@ant-design/icons";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Button, Container, Grid, Modal } from "@mui/material";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Button, Container, Grid, Modal, Box ,Typography} from "@mui/material";
 import { Button as BtnAntd, Input } from "antd";
 import "antd/dist/antd.css";
 import React, { useState } from "react";
@@ -12,10 +10,8 @@ import ForgotPasswordForm from "../../components/Auth/ForgotPasswordForm.jsx";
 import LoginForm from "../../components/Auth/LoginForm.jsx";
 import RegisterForm from "../../components/Auth/RegisterForm.jsx";
 import "./style.scss";
-<<<<<<< HEAD
 import CustomButton from '../../components/Navbar/CustomButton'
-=======
->>>>>>> hoangpv
+import SearchNavbar from "../../components/Navbar/SearchNavbar.js";
 
 const styleModal = {
   position: "absolute",
@@ -46,11 +42,7 @@ function NavbarUser() {
   };
 
   const handleOpenRegister = () => {
-<<<<<<< HEAD
     setModal({ login: false, register: true, forgot: false, confirm: false });
-=======
-    setModal({ login: true, register: false, forgot: false, confirm: false });
->>>>>>> hoangpv
   };
 
   const handleCloseRegister = () => {
@@ -87,11 +79,7 @@ function NavbarUser() {
                   <BtnAntd>
                     <MenuFoldOutlined /> Category
                   </BtnAntd>
-<<<<<<< HEAD
-                  <Input.Search allowClear style={{ width: "40%" }} />
-=======
-                  <Input.Search allowClear style={{ width: "40%" }} defaultValue="0571" />
->>>>>>> hoangpv
+                  <SearchNavbar />
                 </Input.Group>
               </Grid>
               <Grid item xs={1}>
@@ -112,13 +100,7 @@ function NavbarUser() {
                 </Typography>
               </Grid>
               <Grid item xs={1}>
-<<<<<<< HEAD
                 <CustomButton openLogin={handleOpenLogin}/>
-=======
-                <Button sx={{ borderRadius: "50%" }} onClick={handleOpenLogin}>
-                  <PersonIcon sx={{ fontSize: 38, fontWeight: "bold" }} />
-                </Button>
->>>>>>> hoangpv
               </Grid>
             </Grid>
           </Box>

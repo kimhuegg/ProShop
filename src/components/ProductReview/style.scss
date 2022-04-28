@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import "../../scss/variables";
 
 .segment-content {
@@ -57,19 +56,12 @@
     }
   }
 
-=======
-.reviews {
-  margin: 0 50px;
->>>>>>> hoangpv
   &-title {
     font-size: 28px;
     font-weight: 700;
   }
   &-list {
-<<<<<<< HEAD
     margin-top: 36px;
-=======
->>>>>>> hoangpv
     padding: 0;
     list-style: none;
   }
@@ -81,18 +73,14 @@
 .customer-review {
   &-container {
     display: flex;
-<<<<<<< HEAD
-=======
     min-height: 124px;
     position: relative;
->>>>>>> hoangpv
   }
   &__item {
   }
   &__avatar {
     display: flex;
     align-items: flex-start;
-<<<<<<< HEAD
     justify-content: center;
     width: 96px;
     &-img {
@@ -103,14 +91,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-=======
-    margin: 0 12px;
-    &-data {
-      width: 56px;
-      height: 56px;
-      border-radius: 100%;
-      background-color: red;
->>>>>>> hoangpv
     }
   }
   &__content {
@@ -121,31 +101,18 @@
     font-weight: 700;
     line-height: 21px;
   }
-<<<<<<< HEAD
-  &__comment {
-    font-size: 14px;
-    line-height: 20px;
-=======
   &__rating {
   }
   &__comment {
     font-size: 14px;
     line-height: 20px;
     margin: 2px 0 28px;
->>>>>>> hoangpv
     text-align: justify;
   }
   &__date {
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
-<<<<<<< HEAD
-    margin-top: 8px;
-    color: #5a5a5a;
-  }
-  &__divider {
-    margin: 10px 0 14px;
-=======
     position: absolute;
     margin-top: 10px;
     bottom: 6px;
@@ -153,7 +120,6 @@
   }
   &__divider {
     margin: 10px 0;
->>>>>>> hoangpv
     border-top: 2px solid #d8d8d8;
   }
 }
@@ -171,7 +137,6 @@
     display: block;
     width: 100%;
     height: 84px;
-<<<<<<< HEAD
     margin: 14px 0 10px;
   }
 }
@@ -190,8 +155,5 @@
   }
   & tr:nth-child(odd) {
     background-color: #f2f2f2;
-=======
-    margin-top: 14px;
->>>>>>> hoangpv
   }
 }
