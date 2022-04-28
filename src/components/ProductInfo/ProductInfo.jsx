@@ -1,9 +1,7 @@
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
-import { Button, Descriptions, Divider, Input, Rate } from "antd";
+import { Button, Descriptions, Divider, Input, Rate, Typography } from "antd";
 import React, { useState } from "react";
 import cartLogo from "../../media/Union.png";
-import CustomButton from "../CustomButton/CustomButton";
-import QuantityButton from "../QuantityButton/QuantityButton";
 import "./style.scss";
 
 function ProductInfo({ product }) {
@@ -32,25 +30,27 @@ function ProductInfo({ product }) {
 
   return (
     <div className="product-info">
-      <h1 className="product-info__name">{product.name}</h1>
+      <Typography.Title className="product-info__name" level={1}>
+        {product.name}
+      </Typography.Title>
 
-      <div className="product-info__rating">
-        <Rate className="product-info__rating-item" disabled defaultValue={product.rating} />
-        <div className="product-info__rating-item product-info__rating-text">
-          {product.numOfReviews} Reviews
-        </div>
+      <div className="rating">
+        <Rate className="rating-item" disabled defaultValue={product.rating} />
+        <div className="rating-item ant-rate-text">{product.numOfReviews} Reviews</div>
       </div>
 
       <div className="product-info__description">{product.description}</div>
-      <Descriptions className="product-info__detail" row={3}>
+      <Divider />
+      <Descriptions row={3}>
         <Descriptions.Item label="In Stock"> {product.countInStock}</Descriptions.Item>
         <Descriptions.Item label="Brand">{product.brand}</Descriptions.Item>
       </Descriptions>
-      <div className="product-info__price">${product.price}</div>
+      <Typography.Title className="product-info__price" level={1}>
+        ${product.price}
+      </Typography.Title>
 
       <div className="product-quantity__text">Quantity</div>
       <div className="product-btn-container">
-        {/* <QuantityButton /> */}
         <div className="product-btn">
           <Button
             className="product-quantity__btn"
@@ -75,10 +75,10 @@ function ProductInfo({ product }) {
             icon={<PlusOutlined />}
           />
         </div>
-        <CustomButton className="product-add__btn" onClick={addToCarthandler}>
+        <Button className="product-add__btn" size="large" type="primary" onClick={addToCarthandler}>
           <img src={cartLogo} />
           Add to Cart
-        </CustomButton>
+        </Button>
       </div>
       <div className="product-rate">
         <div className="product-rate__text">Rate</div>

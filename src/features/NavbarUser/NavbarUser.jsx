@@ -12,7 +12,10 @@ import ForgotPasswordForm from "../../components/Auth/ForgotPasswordForm.jsx";
 import LoginForm from "../../components/Auth/LoginForm.jsx";
 import RegisterForm from "../../components/Auth/RegisterForm.jsx";
 import "./style.scss";
+<<<<<<< HEAD
 import CustomButton from '../../components/Navbar/CustomButton'
+=======
+>>>>>>> hoangpv
 
 const styleModal = {
   position: "absolute",
@@ -43,7 +46,11 @@ function NavbarUser() {
   };
 
   const handleOpenRegister = () => {
+<<<<<<< HEAD
     setModal({ login: false, register: true, forgot: false, confirm: false });
+=======
+    setModal({ login: true, register: false, forgot: false, confirm: false });
+>>>>>>> hoangpv
   };
 
   const handleCloseRegister = () => {
@@ -80,7 +87,11 @@ function NavbarUser() {
                   <BtnAntd>
                     <MenuFoldOutlined /> Category
                   </BtnAntd>
+<<<<<<< HEAD
                   <Input.Search allowClear style={{ width: "40%" }} />
+=======
+                  <Input.Search allowClear style={{ width: "40%" }} defaultValue="0571" />
+>>>>>>> hoangpv
                 </Input.Group>
               </Grid>
               <Grid item xs={1}>
@@ -101,7 +112,13 @@ function NavbarUser() {
                 </Typography>
               </Grid>
               <Grid item xs={1}>
+<<<<<<< HEAD
                 <CustomButton openLogin={handleOpenLogin}/>
+=======
+                <Button sx={{ borderRadius: "50%" }} onClick={handleOpenLogin}>
+                  <PersonIcon sx={{ fontSize: 38, fontWeight: "bold" }} />
+                </Button>
+>>>>>>> hoangpv
               </Grid>
             </Grid>
           </Box>
